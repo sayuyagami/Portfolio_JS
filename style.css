@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
     background: rgb(0, 0, 0);
     color: white;
 }
 
-.header{
-    position: fixed;
+.header {
     top: 0;
     left: 0;
     width: 100%;
@@ -25,9 +28,10 @@ body{
     z-index: 100;
 }
 
-.logo{
+.logo {
     font-size: 25px;
     color: white;
+    padding-left: 50px;
     text-decoration: none;
     font-weight: 600;
     cursor: default;
@@ -35,7 +39,7 @@ body{
     animation: slideRight 1s ease forwards;
 }
 
-.navbar a {
+.navbar-nav a {
     display: inline-block;
     font-size: 18px;
     color: white;
@@ -48,26 +52,22 @@ body{
     animation-delay: calc(.2s * var(--i));
 }
 
-.navbar a:hover,
-.navbar a.active{
-    color:#0ef;
+.navbar-nav a:hover,
+.navbar-nav a.active {
+    color: #0ef !important;
 }
 
-.home{
+.home {
     position: relative;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 70px 10% 0px;
 }
 
-.home-content{
+.home-content {
     max-width: 600px;
 }
 
-.home-content h3{
+.home-content h3 {
     font-size: 25px;
     font-weight: 700;
     opacity: 0;
@@ -75,17 +75,17 @@ body{
     animation-delay: .7s;
 }
 
-.home-content h3:nth-of-type(2){
+.home-content h3:nth-of-type(2) {
     margin-bottom: 30px;
     animation: slideTop 1s ease forwards;
     animation-delay: .7s;
 }
 
-.home-content h3 span{
+.home-content h3 span {
     color: #0ef;
 }
 
-.home-content h1{
+.home-content h1 {
     font-size: 40px;
     font-weight: 700;
     margin: -3px 0;
@@ -101,9 +101,8 @@ body{
     animation-delay: 1s;
 }
 
-.home-img img{
+.home-img img {
     max-width: 450px;
-    margin-right: -5px;
     opacity: 0;
     animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
     animation-delay: 2s, 3s;
@@ -128,13 +127,13 @@ body{
     animation-delay: calc(.2s * var(--i));
 }
 
-.social-media a:hover{
+.social-media a:hover {
     background: #0ef;
     color: #1f242d;
     box-shadow: 0 0 20px #0ef;
 }
 
-.btn{
+.btn {
     display: inline-block;
     padding: 12px 28px;
     background: #0ef;
@@ -151,68 +150,89 @@ body{
 }
 
 /* KEYFRAMES ANIMATION */
-@keyframes slideRight{
-    0%{
+@keyframes slideRight {
+    0% {
         transform: translateX(-100px);
         opacity: 0;
     }
-    100%{
+
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-@keyframes slideLeft{
-    0%{
+@keyframes slideLeft {
+    0% {
         transform: translateX(100px);
         opacity: 0;
     }
-    100%{
+
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-@keyframes slideTop{
-    0%{
+@keyframes slideTop {
+    0% {
         transform: translateY(100px);
         opacity: 0;
     }
-    100%{
+
+    100% {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
-@keyframes slideBottom{
-    0%{
+@keyframes slideBottom {
+    0% {
         transform: translateY(-100px);
         opacity: 0;
     }
-    100%{
+
+    100% {
         transform: translateY(0);
         opacity: 1;
     }
 }
-@keyframes zoomIn{
-    0%{
+
+@keyframes zoomIn {
+    0% {
         transform: scale(0);
         opacity: 0;
     }
-    100%{
+
+    100% {
         transform: scale(1);
         opacity: 1;
     }
 }
 
-@keyframes floatImage{
-    0%{
+@keyframes floatImage {
+    0% {
         transform: translateY(0);
     }
-    50%{
+
+    50% {
         transform: translateY(-24px);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 952px) {
+    .logo {
+        font-size: 25px;
+        padding-left: 35px;
+    }
+    .home-img img {
+        width: 350px;
+    }
+    .home-content{
+        text-align: center;
     }
 }
